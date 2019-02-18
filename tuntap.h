@@ -76,21 +76,22 @@ extern void build_herc_iface_mac ( BYTE* out_mac, const BYTE* in_ip );
 // Helper Macros
 //
 
-#if defined( WIN32 )
+#if defined(OPTION_W32_CTCI)
   #define TUNTAP_Open     tt32_open
   #define TUNTAP_Close    tt32_close
   #define TUNTAP_Read     tt32_read
   #define TUNTAP_Write    tt32_write
   #define TUNTAP_IOCtl    tt32_ioctl
-#else
+#else /*!defined(OPTION_W32_CTCI)*/
   #define TUNTAP_Open     open
   #define TUNTAP_Close    close
   #define TUNTAP_Read     read
   #define TUNTAP_Write    write
   #define TUNTAP_IOCtl    ioctl
-#endif // defined( WIN32 )
+#endif /*!defined(OPTION_W32_CTCI)*/
 
 #if defined( WIN32 )
+#if defined(OPTION_W32_CTCI)
 
 // Win32 (MinGW/Cygwin/MSVC) does not have these
 // so we need to define them ourselves...
@@ -184,6 +185,8 @@ struct rtentry
 #define RTMSG_CONTROL           0x40
 
 #define RTMSG_AR_FAILED         0x51    /* Address Resolution failed.  */
+
+#endif /*defined(OPTION_W32_CTCI)*/
 
 /* Use the definitions from the kernel header files.  */
 //#include <asm/ioctls.h>

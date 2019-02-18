@@ -166,7 +166,7 @@
 
 #define HTTP_SERVER_CONNECT_KLUDGE
 
-#define OPTION_W32_CTCI                 /* Fish's TunTap for CTCA's  */
+//#define OPTION_W32_CTCI                 /* Fish's TunTap for CTCA's  */
 #undef  TUNTAP_IFF_RUNNING_NEEDED       /* TunTap32 doesn't allow it */
 
 #define OPTION_SCSI_TAPE                /* SCSI tape support         */
